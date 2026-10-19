@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1717">
+<meta name="description" content="منصة هندسية للطاقة المتجددة، محاكاة الشبكات، واختبارات التشغيل والتحقق الميداني.">
+<title>REH | Renewable Energy Engineering Hub</title>
+<style>
+:root{
+  --bg:#0b1717;--panel:#122322;--green:#a7f36b;
+  --mint:#55d6bd;--white:#f3f7f4;--muted:#a4b7b0;
+  --line:#29413c;--radius:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--white);
+font-family:Arial,"Segoe UI",sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.container{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#0b1717ed;
+backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{min-height:76px;display:flex;align-items:center;
+justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}
+.logo{width:39px;height:39px;border-radius:12px;
+background:var(--green);color:#102019;display:grid;place-items:center;
+font-size:20px}
+.links{display:flex;align-items:center;gap:21px;font-size:14px;color:var(--muted)}
+.links a:hover{color:var(--green)}
+.actions{display:flex;align-items:center;gap:10px}
+.lang,.menu{background:transparent;border:1px solid var(--line);
+color:var(--white);padding:9px 12px;border-radius:10px}
+.menu{display:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;
+gap:8px;padding:12px 19px;border-radius:11px;font-weight:700;
+border:1px solid transparent;transition:.2s}
+.btn.primary{background:var(--green);color:#102019}
+.btn.secondary{border-color:var(--line);background:#ffffff06}
+.btn:hover{transform:translateY(-2px)}
+.hero{padding:90px 0 65px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:430px;height:430px;
+background:#a7f36b12;filter:blur(90px);border-radius:50%;
+top:10px;inset-inline-end:-100px;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;
+align-items:center;gap:55px;position:relative}
+.eyebrow{display:inline-flex;gap:9px;align-items:center;
+color:var(--green);font-size:13px;letter-spacing:.3px}
+.dot{width:7px;height:7px;background:var(--green);border-radius:50%}
+h1{font-size:clamp(36px,5vw,61px);line-height:1.18;
+letter-spacing:-1.5px;margin:20px 0}
+h1 span{color:var(--green)}
+.lead{color:var(--muted);font-size:17px;max-width:610px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.metrics{display:flex;gap:30px;flex-wrap:wrap;margin-top:40px}
+.metric strong{display:block;font-size:21px;color:var(--white)}
+.metric small{color:var(--muted)}
+.visual{background:linear-gradient(145deg,#1a3831,#10201f 70%);
+border:1px solid #335249;border-radius:28px;padding:22px;
+min-height:380px;position:relative;overflow:hidden}
+.visual-label{font-size:12px;color:var(--muted)}
+.visual-title{font-size:19px;font-weight:700;margin-top:5px}
+.diagram{height:210px;display:flex;align-items:center;justify-content:center}
+.diagram svg{width:100%;max-width:370px}
+.status{border:1px solid #38534a;background:#0b1717b8;
+border-radius:14px;padding:13px 15px;display:flex;
+align-items:center;justify-content:space-between;gap:10px;font-size:13px}
+.status b{color:var(--green)}
+section{padding:65px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;
+gap:20px;margin-bottom:28px}
+h2{font-size:clamp(26px,3vw,37px);line-height:1.25;margin:8px 0}
+.section-head p,.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{background:var(--panel);border:1px solid var(--line);
+border-radius:var(--radius);padding:24px;min-width:0;transition:.2s}
+.card:hover{border-color:#6d9b7d;transform:translateY(-3px)}
+.card-icon{width:47px;height:47px;border-radius:14px;
+display:grid;place-items:center;background:#a7f36b15;
+color:var(--green);font-size:24px;margin-bottom:18px}
+.card h3{margin:0 0 9px;font-size:19px}
+.card p{color:var(--muted);font-size:14px;margin:0 0 18px}
+.card a{color:var(--green);font-size:14px;font-weight:700}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:7px;
+padding:3px 8px;font-size:11px;color:var(--muted);margin:3px 3px 3px 0}
+.band{background:linear-gradient(110deg,#18362d,#122322);
+border:1px solid #315044;border-radius:24px;padding:35px;
+display:flex;align-items:center;justify-content:space-between;gap:25px}
+.band p{color:var(--muted);max-width:660px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step{padding:19px;border-top:2px solid var(--green);background:#ffffff04}
+.step b{color:var(--green);font-size:13px}
+.step h3{font-size:16px}
+.step p{color:var(--muted);font-size:13px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13px}
+.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+[dir="ltr"] .section-head{direction:ltr}
+[dir="ltr"] .hero-grid{direction:ltr}
+[dir="ltr"] .band{direction:ltr}
+[dir="ltr"] .steps{direction:ltr}
+[dir="ltr"] .links{direction:ltr}
+@media(max-width:900px){
+ .links{display:none;position:absolute;top:76px;left:0;right:0;
+ background:var(--bg);padding:20px 4%;border-bottom:1px solid var(--line);
+ flex-direction:column;align-items:stretch}
+ .links.open{display:flex}.menu{display:block}
+ .hero-grid{grid-template-columns:1fr;gap:35px}
+ .hero{padding-top:55px}.visual{min-height:320px}
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .steps{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+ .grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}
+ .band{align-items:start;flex-direction:column;padding:24px}
+ .metrics{gap:20px}.brand-name{font-size:13px}
+ h1{letter-spacing:-.7px}.visual{padding:17px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="container nav">
+  <a href="#home" class="brand" aria-label="Home">
+   <span class="logo">↗</span>
+   <span class="brand-name">REH <span style="color:var(--green)">/</span> Engineering</span>
+  </a>
+  <nav class="links" id="navlinks">
+   <a href="#solutions" data-ar="الحلول الهندسية" data-en="Solutions">الحلول الهندسية</a>
+   <a href="#simulation" data-ar="محاكاة الشبكات" data-en="Grid simulation">محاكاة الشبكات</a>
+   <a href="#testing" data-ar="الاختبارات" data-en="Testing">الاختبارات</a>
+   <a href="#applications" data-ar="التطبيقات" data-en="Applications">التطبيقات</a>
+   <a href="#about" data-ar="عن المنصة" data-en="About">عن المنصة</a>
+  </nav>
+  <div class="actions">
+   <button class="lang" id="langBtn" type="button">EN</button>
+   <button class="menu" id="menuBtn" type="button" aria-label="Open menu">☰</button>
+  </div>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="container hero-grid">
+  <div>
+   <div class="eyebrow"><span class="dot"></span>
+    <span data-ar="الهندسة • الطاقة • أداء الشبكات" data-en="ENGINEERING • ENERGY • GRID PERFORMANCE">الهندسة • الطاقة • أداء الشبكات</span>
+   </div>
+   <h1 data-ar="هندسة الطاقة المتجددة،<br>من <span>التصميم</span> إلى التحقق." data-en="Renewable energy engineering,<br>from <span>design</span> to validation.">هندسة الطاقة المتجددة،<br>من <span>التصميم</span> إلى التحقق.</h1>
+   <p class="lead" data-ar="منصة تقنية للتصميم والمحاكاة الكهربائية، وربط مصادر الطاقة بالشبكة، والتحقق من اختبارات التشغيل، واستكشاف أدوات هندسية عملية." data-en="A technical platform for electrical design and simulation, renewable grid integration, commissioning verification, and practical engineering tools.">منصة تقنية للتصميم والمحاكاة الكهربائية، وربط مصادر الطاقة بالشبكة، والتحقق من اختبارات التشغيل، واستكشاف أدوات هندسية عملية.</p>
+   <div class="hero-buttons">
+    <a class="btn primary" href="#solutions" data-ar="استكشف الحلول ↙" data-en="Explore solutions ↙">استكشف الحلول ↙</a>
+    <a class="btn secondary" href="#applications" data-ar="مكتبة التطبيقات" data-en="Application library">مكتبة التطبيقات</a>
+   </div>
+   <div class="metrics">
+    <div class="metric"><strong>PV / Wind / H₂</strong><small data-ar="تقنيات الطاقة" data-en="Energy technologies">تقنيات الطاقة</small></div>
+    <div class="metric"><strong>IEC / EN</strong><small data-ar="مرجعية المعايير" data-en="Standards framework">مرجعية المعايير</small></div>
+    <div class="metric"><strong>Design → Test</strong><small data-ar="سير العمل الهندسي" data-en="Engineering workflow">سير العمل الهندسي</small></div>
+   </div>
+  </div>
+  <div class="visual">
+   <div class="visual-label" data-ar="منظومة هندسية • عرض توضيحي" data-en="ENGINEERING SYSTEM • CONCEPT">منظومة هندسية • عرض توضيحي</div>
+   <div class="visual-title" data-ar="منشأة متجددة متصلة بالشبكة" data-en="Grid-connected renewable plant">منشأة متجددة متصلة بالشبكة</div>
+   <div class="diagram">
+    <svg viewBox="0 0 360 200" fill="none" role="img" aria-label="Renewable energy system diagram">
+     <g stroke="#6f9c8b" stroke-width="1.5" stroke-linecap="round">
+      <path d="M52 48 L52 85 M32 85 H72 M36 85 L28 115 H76 L68 85 M28 115 H76"/>
+      <path d="M52 85 V145 H180 M180 105 V145 M180 145 H290 V105"/>
+      <path d="M180 105 V65 H285" stroke-dasharray="4 5"/>
+      <path d="M170 100 H190 V120 H170 Z" fill="#183c32" stroke="#a7f36b"/>
+      <path d="M275 45 L285 65 L295 45 M285 65 V104 M285 72 L270 80 M285 72 L300 80"/>
+      <path d="M270 80 L285 72 L300 80" stroke="#55d6bd"/>
+      <path d="M275 45 L285 25 L295 45" stroke="#55d6bd"/>
+      <path d="M245 130 H320 V160 H245 Z" fill="#183c32"/>
+      <path d="M250 140 H260 M265 140 H275 M280 140 H290 M295 140 H305" stroke="#a7f36b"/>
+     </g>
+     <g fill="#a7f36b" font-size="10" font-family="Arial">
+      <text x="52" y="25" text-anchor="middle">PV</text>
+      <text x="180" y="90" text-anchor="middle">PCS</text>
+      <text x="285" y="16" text-anchor="middle">WIND</text>
+      <text x="282" y="178" text-anchor="middle">GRID</text>
+     </g>
+     <circle cx="52" cy="145" r="4" fill="#a7f36b"/>
+     <circle cx="180" cy="145" r="4" fill="#a7f36b"/>
+     <circle cx="290" cy="105" r="4" fill="#55d6bd"/>
+    </svg>
+   </div>
+   <div class="status"><span data-ar="حالة المشروع" data-en="Project status">حالة المشروع</span><b data-ar="نموذج أولي • Concept" data-en="Prototype • Concept">نموذج أولي • Concept</b></div>
+  </div>
+ </div>
+</section>
+
+<section id="solutions">
+ <div class="container">
+  <div class="section-head"><div>
+   <div class="eyebrow" data-ar="مجالات العمل" data-en="CAPABILITIES">مجالات العمل</div>
+   <h2 data-ar="حلول هندسية متكاملة" data-en="Integrated engineering solutions">حلول هندسية متكاملة</h2>
+  </div>
+  <p data-ar="بنية منظمة تنمو مع مشاريعك" data-en="A structured platform that grows with your projects">بنية منظمة تنمو مع مشاريعك</p></div>
+  <div class="grid">
+   <article class="card"><div class="card-icon">☀</div><h3 data-ar="الطاقة الشمسية" data-en="Solar energy">الطاقة الشمسية</h3><p data-ar="التصميم الكهربائي، اختيار العواكس، تقدير الإنتاج، ودراسة متطلبات الربط." data-en="Electrical design, inverter selection, yield estimation, and grid-connection studies.">التصميم الكهربائي، اختيار العواكس، تقدير الإنتاج، ودراسة متطلبات الربط.</p><a href="#applications" data-ar="استكشف الأدوات ←" data-en="Explore tools →">استكشف الأدوات ←</a></article>
+   <article class="card"><div class="card-icon">♧</div><h3 data-ar="طاقة الرياح" data-en="Wind energy">طاقة الرياح</h3><p data-ar="خصائص التوليد، أنظمة التحويل، سلوك القدرة، والربط الكهربائي." data-en="Generation characteristics, conversion systems, power behavior, and grid integration.">خصائص التوليد، أنظمة التحويل، سلوك القدرة، والربط الكهربائي.</p><a href="#applications" data-ar="استكشف الأدوات ←" data-en="Explore tools →">استكشف الأدوات ←</a></article>
+   <article class="card"><div class="card-icon">H₂</div><h3 data-ar="الهيدروجين الأخضر" data-en="Green hydrogen">الهيدروجين الأخضر</h3><p data-ar="تكامل المحللات الكهربائية، تحويل القدرة، الأحمال، وأنظمة التحكم." data-en="Electrolyser integration, power conversion, loads, and control systems.">تكامل المحللات الكهربائية، تحويل القدرة، الأحمال، وأنظمة التحكم.</p><a href="#applications" data-ar="استكشف الأدوات ←" data-en="Explore tools →">استكشف الأدوات ←</a></article>
+  </div>
+ </div>
+</section>
+
+<section id="simulation">
+ <div class="container">
+  <div class="section-head"><div>
+   <div class="eyebrow" data-ar="أنظمة القدرة" data-en="POWER SYSTEMS">أنظمة القدرة</div>
+   <h2 data-ar="محاكاة الربط مع الشبكة" data-en="Grid integration & simulation">محاكاة الربط مع الشبكة</h2>
+  </div></div>
+  <div class="grid">
+   <article class="card"><span class="tag">IEC / EN</span><h3 data-ar="دراسات تدفق الأحمال" data-en="Load-flow studies">دراسات تدفق الأحمال</h3><p data-ar="تحليل الجهد، تدفق القدرة الفعالة وغير الفعالة، وسعة المعدات." data-en="Voltage profiles, active/reactive power flow, and equipment loading.">تحليل الجهد، تدفق القدرة الفعالة وغير الفعالة، وسعة المعدات.</p></article>
+   <article class="card"><span class="tag">Protection</span><h3 data-ar="القصر والحماية" data-en="Short circuit & protection">القصر والحماية</h3><p data-ar="دراسات تيارات الأعطال، تنسيق الحماية، والتحقق من إعدادات المرحلات." data-en="Fault-current studies, protection coordination, and relay-setting verification.">دراسات تيارات الأعطال، تنسيق الحماية، والتحقق من إعدادات المرحلات.</p></article>
+   <article class="card"><span class="tag">Power quality</span><h3 data-ar="جودة القدرة والامتثال" data-en="Power quality & compliance">جودة القدرة والامتثال</h3><p data-ar="التوافقيات، معامل القدرة، استجابة التردد والجهد، ومتطلبات مشغل الشبكة." data-en="Harmonics, power factor, frequency/voltage response, and grid-operator requirements.">التوافقيات، معامل القدرة، استجابة التردد والجهد، ومتطلبات مشغل الشبكة.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="testing">
+ <div class="container">
+  <div class="section-head"><div>
+   <div class="eyebrow" data-ar="من الموقع إلى التشغيل" data-en="FROM SITE TO OPERATION">من الموقع إلى التشغيل</div>
+   <h2 data-ar="الاختبارات والتحقق الميداني" data-en="Field testing & commissioning">الاختبارات والتحقق الميداني</h2>
+   <p data-ar="تنظيم أدلة الاختبار والنتائج وفق خطة المشروع والمعايير المعتمدة." data-en="Organize test evidence and results against project plans and applicable standards.">تنظيم أدلة الاختبار والنتائج وفق خطة المشروع والمعايير المعتمدة.</p>
+  </div></div>
+  <div class="steps">
+   <div class="step"><b>01 / PRE-COMMISSIONING</b><h3 data-ar="قبل التشغيل" data-en="Pre-commissioning">قبل التشغيل</h3><p data-ar="فحص الوثائق، التوصيلات، والتأريض." data-en="Document, wiring, and earthing checks.">فحص الوثائق، التوصيلات، والتأريض.</p></div>
+   <div class="step"><b>02 / FUNCTIONAL</b><h3 data-ar="الاختبارات الوظيفية" data-en="Functional tests">الاختبارات الوظيفية</h3><p data-ar="اختبار الوظائف، الإنذارات، والتحكم." data-en="Function, alarm, and control testing.">اختبار الوظائف، الإنذارات، والتحكم.</p></div>
+   <div class="step"><b>03 / GRID COMPLIANCE</b><h3 data-ar="الامتثال للشبكة" data-en="Grid compliance">الامتثال للشبكة</h3><p data-ar="توثيق النتائج وفق متطلبات الربط." data-en="Document results against grid requirements.">توثيق النتائج وفق متطلبات الربط.</p></div>
+   <div class="step"><b>04 / REPORT</b><h3 data-ar="التقرير النهائي" data-en="Final report">التقرير النهائي</h3><p data-ar="نتائج، انحرافات، أدلة، وإجراءات تصحيحية." data-en="Results, deviations, evidence, and corrective actions.">نتائج، انحرافات، أدلة، وإجراءات تصحيحية.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="applications">
+ <div class="container">
+  <div class="section-head"><div>
+   <div class="eyebrow" data-ar="مكتبة الأدوات" data-en="ENGINEERING TOOLBOX">مكتبة الأدوات</div>
+   <h2 data-ar="تطبيقات هندسية واختبارات عن بُعد" data-en="Engineering apps & remote testing">تطبيقات هندسية واختبارات عن بُعد</h2>
+   <p data-ar="مساحة مخصصة لنشر تطبيقاتك وأدلتها ونتائجها." data-en="A dedicated space for your applications, documentation, and results.">مساحة مخصصة لنشر تطبيقاتك وأدلتها ونتائجها.</p>
+  </div></div>
+  <div class="grid">
+   <article class="card"><div class="card-icon">⌁</div><h3 data-ar="أدوات الحساب" data-en="Calculation tools">أدوات الحساب</h3><p data-ar="أدوات مساعدة للحسابات الهندسية مع بيان الفرضيات والوحدات وحدود الاستخدام." data-en="Engineering calculators with assumptions, units, and usage limits.">أدوات مساعدة للحسابات الهندسية مع بيان الفرضيات والوحدات وحدود الاستخدام.</p><span class="tag" data-ar="قابل للإضافة" data-en="Planned">قابل للإضافة</span></article>
+   <article class="card"><div class="card-icon">◎</div><h3 data-ar="الاختبارات عن بُعد" data-en="Remote testing">الاختبارات عن بُعد</h3><p data-ar="واجهة مستقبلية لمراقبة الاختبار، عرض القياسات، وتوثيق جلسات التشغيل." data-en="A future interface for test monitoring, measurements, and session records.">واجهة مستقبلية لمراقبة الاختبار، عرض القياسات، وتوثيق جلسات التشغيل.</p><span class="tag" data-ar="يتطلب ربطاً تقنياً" data-en="Integration required">يتطلب ربطاً تقنياً</span></article>
+   <article class="card"><div class="card-icon">▤</div><h3 data-ar="نماذج التقارير" data-en="Report templates">نماذج التقارير</h3><p data-ar="قوالب لتوثيق نتائج الاختبارات، حالات عدم المطابقة، والإجراءات التصحيحية." data-en="Templates for test results, non-conformities, and corrective actions.">قوالب لتوثيق نتائج الاختبارات، حالات عدم المطابقة، والإجراءات التصحيحية.</p><span class="tag" data-ar="قابل للإضافة" data-en="Planned">قابل للإضافة</span></article>
+  </div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="container">
+  <div class="band">
+   <div><div class="eyebrow" data-ar="بنية قابلة للنمو" data-en="BUILT TO GROW">بنية قابلة للنمو</div>
+    <h2 data-ar="ابدأ صغيراً. توسّع بثقة." data-en="Start lean. Scale with confidence.">ابدأ صغيراً. توسّع بثقة.</h2>
+    <p data-ar="نبدأ بموقع المحتوى، ثم نضيف صفحات المعايير، ودراسات الحالة، ولوحة إدارة المحتوى، وبعدها التطبيقات التفاعلية والاتصال الآمن بالأجهزة عند الحاجة." data-en="Start with the content site, then add standards, case studies, a content manager, and eventually interactive applications and secure device connectivity where needed.">نبدأ بموقع المحتوى، ثم نضيف صفحات المعايير، ودراسات الحالة، ولوحة إدارة المحتوى، وبعدها التطبيقات التفاعلية والاتصال الآمن بالأجهزة عند الحاجة.</p>
+   </div>
+   <a class="btn primary" href="mailto:contact@example.com" data-ar="بيانات التواصل (عدّلها)" data-en="Contact details (edit)">بيانات التواصل (عدّلها)</a>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container footer-inner">
+  <span>© <span id="year"></span> REH — Renewable Energy Engineering Hub</span>
+  <span data-ar="محتوى هندسي تعريفي؛ التحقق من الامتثال مسؤولية المشروع والجهات المختصة." data-en="Engineering information only; compliance must be verified for each project by the responsible parties.">محتوى هندسي تعريفي؛ التحقق من الامتثال مسؤولية المشروع والجهات المختصة.</span>
+ </div>
+</footer>
+
+<script>
+const langBtn=document.getElementById('langBtn');
+const navlinks=document.getElementById('navlinks');
+let language='ar';
+function setLanguage(next){
+ language=next;
+ document.documentElement.lang=next;
+ document.documentElement.dir=next==='ar'?'rtl':'ltr';
+ document.querySelectorAll('[data-ar][data-en]').forEach(el=>{
+   el.innerHTML=el.dataset[next];
+ });
+ langBtn.textContent=next==='ar'?'EN':'عربي';
+ document.title=next==='ar'
+ ?'REH | منصة هندسة الطاقة المتجددة'
+ :'REH | Renewable Energy Engineering Hub';
+}
+langBtn.addEventListener('click',()=>setLanguage(language==='ar'?'en':'ar'));
+document.getElementById('menuBtn').addEventListener('click',()=>{
+ navlinks.classList.toggle('open');
+});
+navlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+ navlinks.classList.remove('open');
+}));
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
